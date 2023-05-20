@@ -1,11 +1,10 @@
 import React, { useEffect } from "react"
-
-import { useStore } from "../State"
+import { useStore } from "../state"
 import SidebarCard from "./SidebarCard"
 import InfoModal from "./InfoModal"
 
 function Sidebar(props) {
-  const { cardData, setCardData } = useStore()
+  const { setCardData, cardData } = useStore()
 
   useEffect(() => {
     setCardData([
@@ -31,7 +30,7 @@ function Sidebar(props) {
   }, [])
 
   return (
-    <div className="w-[500px] h-full absolute right-0 top-0  bg-slate-500">
+    <div className="w-[500px] h-full  bg-slate-500">
       {cardData.map((card, index) => (
         <SidebarCard key={index} data={card} />
       ))}

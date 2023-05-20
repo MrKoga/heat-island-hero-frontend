@@ -1,9 +1,8 @@
 import React from "react"
-import PropTypes from "prop-types"
 
 function SidebarCard({ data }) {
   return (
-    <div className="border border-black h-[200px] w-full">
+    <div className="border text-black p-4 border-black h-[200px] w-full mb-4 bg-slate-300">
       <span>{data.address}</span>
       <span>{data.heatIndex}</span>
       <span>{data.riskLevel}</span>
