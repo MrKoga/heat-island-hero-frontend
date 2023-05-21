@@ -4,12 +4,12 @@ import L from "leaflet"
 function MapDisplay() {
   const mapRef = useRef(null)
 
-  const lat = 34.20777934831021
-  const lon = -118.34127126275136
+  const lat = 34.0522
+  const lon = -118.2437
   const boxSize = 0.001
 
   useEffect(() => {
-    const mapInstance = L.map("mapbox").setView([lat, lon], 20)
+    const mapInstance = L.map("mapbox").setView([lat, lon], 11)
     mapRef.current = mapInstance
 
     L.tileLayer(
