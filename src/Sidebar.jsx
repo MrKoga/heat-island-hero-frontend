@@ -50,7 +50,7 @@ function Sidebar(props) {
   return (
     <div
       style={{ maxHeight: "calc(100vh - 50px", overflowY: "scroll" }}
-      className="relative custom-scrollbar p-4 rounded-lg  bg-[#8aa284]"
+      className="relative custom-scrollbar p-4 rounded-lg  bg-[#d0dec6]"
     >
       {cardData.map((card, index) => (
         <SidebarCard key={index} data={card} />
