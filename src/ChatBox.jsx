@@ -43,7 +43,7 @@ function ChatBox() {
         />
         <button
           onClick={submitText}
-          className="bg-dark-green text-black rounded-xl w-[100px] h-full inline-flex justify-center items-center ml-10"
+          className="bg-dark-green text-black rounded-xl w-[100px] h-full inline-flex justify-center items-center ml-4"
           disabled={loading}
         >
           SUBMIT

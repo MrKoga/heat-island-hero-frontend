@@ -44,29 +44,7 @@ function MapDisplay() {
     }
   }, [])
 
-  // useEffect(() => {
-  //   censusTrackData.forEach((data) => {
-  //     const polygonPoints = data.geometry.map((geo) => {
-  //       return [geo.lat, geo.lon]
-  //     })
-  //     const polygon = L.polygon([polygonPoints], {
-  //       color: getColor(data.perc_no_tree_canopy),
-  //       fillColor: getColor(data.perc_no_tree_canopy),
-  //     }).addTo(mapRef.current)
-  //     polygon.bindPopup(
-  //       ` <b>${data.census_city}</b><br>Delta T: ${data.perc_no_tree_canopy}&deg;<br>
-  //      Poverty Percentage: ${data.perc_poverty}%
-  //       `
-  //     )
-  //     polygon.on("click", () => {
-  //       console.log(data)
-  //       setSelectedCensusData(data)
-  //     })
-  //   })
-  // }, [censusTrackData])
-
   useEffect(() => {
-    // Create a layer group
     const polygonLayerGroup = L.layerGroup().addTo(mapRef.current)
 
     censusTrackData.forEach((data) => {
@@ -80,8 +58,26 @@ function MapDisplay() {
       })
 
       polygon.bindPopup(
-        `<b>${data.census_city}</b><br>Delta T: ${data.perc_no_tree_canopy}&deg;<br>
-            Poverty Percentage: ${data.perc_poverty}%`
+        `<b>${data.census_city}</b>
+        <br>
+        <b>Delta T:</b> ${data.perc_no_tree_canopy}&deg;<br>
+
+          <b>County:</b> ${data?.census_county}
+
+<br>       
+          <b>City:</b> ${data?.census_city}
+        
+       <br>
+          <b>Delta T:</b> ${data?.uhii_avgdeltat}
+        
+       <br>
+          <b>Percent No Tree Canopy:</b>
+          ${data?.perc_no_tree_canopy}
+        <br>
+       
+          <b>Heat Health Action Index:</b>
+          ${data?.heat_health_action_index}
+        `
       )
 
       polygon.on("click", () => {
