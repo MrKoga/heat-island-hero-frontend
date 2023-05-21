@@ -40,20 +40,6 @@ function MapDisplay() {
     }
   }, [])
 
-  useEffect(() => {
-    fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=b294bd359119639843ed9bcf5284c7c2`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        L.marker([lat, lon])
-          .addTo(mapRef.current)
-          .bindPopup(`Current temperature: ${data.main.temp - 273.15}°C`)
-          .openPopup()
-      })
-      .catch((error) => console.error(error))
-  }, [])
-
   return (
     <div className="w-full h-[90%]">
       <div className="h-[100%] w-[100%] rounded-lg" id="mapbox"></div>

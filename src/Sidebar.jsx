@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import { useStore } from "../state"
 import SidebarCard from "./SidebarCard"
 import "./custom-scrollbar.css"
