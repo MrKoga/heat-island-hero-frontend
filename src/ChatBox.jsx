@@ -20,14 +20,14 @@ function ChatBox(props) {
   return (
     <div className=" mt-4 h-[8.5%] flex border-black">
       <input
-        className="text-black p-5 bg-white rounded-lg text-3xl flex-grow"
+        className="text-black p-5 bg-[#B2AC88] rounded-lg text-3xl flex-grow"
         placeholder="hello"
         onChange={(e) => setTextQuery(e.target.value)}
         value={textQuery}
       />
       <button
         onClick={submitText}
-        className="bg-red-300 text-black rounded-xl w-[100px] h-full inline-flex justify-center items-center ml-10"
+        className="bg-[#d2b48c] text-black rounded-xl w-[100px] h-full inline-flex justify-center items-center ml-10"
       >
         SUBMIT
       </button>

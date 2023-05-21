@@ -6,9 +6,9 @@ import InfoModal from "./InfoModal"
 
 function App() {
   return (
-    <div className="fixed w-full h-full grid gap-4 grid-cols-3 p-4 grid-rows-[auto,1fr] bg-red-500">
+    <div className="fixed w-full h-full grid gap-4 grid-cols-3 p-4 grid-rows-[auto,1fr] bg-[#f9f1f1]">
       <div className="col-span-3  grid items-center justify-center">
-        <span className="text-7xl">Heat Island Hero 🔥</span>
+        <span className="text-7xl text-black">Heat Island Hero</span>
         <div className="fixed top-5 right-5">
           <InfoModal />
         </div>

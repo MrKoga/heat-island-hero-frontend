@@ -33,6 +33,16 @@ function MapDisplay() {
       radius: 50,
     }).addTo(mapInstance)
 
+    // Add click event listener to the map
+    mapInstance.on("click", function (e) {
+      // Create a popup at the clicked location and
+      // populate it with the latitude and longitude of the location
+      L.popup()
+        .setLatLng(e.latlng)
+        .setContent("Lat: " + e.latlng.lat + "<br>Lon: " + e.latlng.lng)
+        .openOn(mapInstance)
+    })
+
     return () => {
       if (mapInstance) {
         mapInstance.remove()
