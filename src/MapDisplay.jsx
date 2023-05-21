@@ -40,8 +40,8 @@ function MapDisplay() {
   }, [])
 
   return (
-    <div className="w-full h-[90%] border border-green-500">
-      <div className="h-[100%] w-[100%] border border-black" id="mapbox"></div>
+    <div className="w-full h-[90%]">
+      <div className="h-[100%] w-[100%]" id="mapbox"></div>
     </div>
   )
 }

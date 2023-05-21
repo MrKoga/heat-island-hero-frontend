@@ -30,11 +30,11 @@ function Sidebar(props) {
   }, [])
 
   return (
-    <div className=" relative h-full  bg-slate-500">
+    <div className="relative p-4  bg-slate-500">
       {cardData.map((card, index) => (
         <SidebarCard key={index} data={card} />
       ))}
-      <div className="absolute bottom-5 right-10">
+      <div className="absolute bottom-5 right-5">
         <InfoModal />
       </div>
     </div>
