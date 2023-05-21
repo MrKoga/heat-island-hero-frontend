@@ -1,7 +1,9 @@
 import { useRef, useEffect } from "react"
 import L from "leaflet"
+import { useStore } from "../state"
 
 function MapDisplay() {
+  const { buildingSelectionData } = useStore()
   const mapRef = useRef(null)
 
   const lat = 34.0522
@@ -50,6 +52,23 @@ function MapDisplay() {
       }
     }
   }, [])
+
+  useEffect(() => {
+    buildingSelectionData.forEach((data) => {
+      console.log(data)
+      L.polygon(
+        [
+          [lat - boxSize / 2, lon - boxSize / 4 + 0.01], // southwest corner
+          [lat - boxSize / 2, lon + boxSize / 2 + 0.01], // northwest corner
+          [lat + boxSize / 2, lon + boxSize / 2 + 0.01], // northeast corner
+        ],
+        {
+          color: "#90EE90",
+          fillColor: "#90EE90",
+        }
+      ).addTo(mapRef.current)
+    })
+  }, [buildingSelectionData])
 
   return (
     <div className="w-full h-[90%]">

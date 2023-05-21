@@ -5,4 +5,7 @@ export const useStore = create((set) => ({
   setCardData: (cardData) => set({ cardData }),
   textQuery: "",
   setTextQuery: (textQuery) => set({ textQuery }),
+  buildingSelectionData: [""],
+  setBuildingSelectionData: (buildingSelectionData) =>
+    set({ buildingSelectionData }),
 }))
