@@ -1,3 +1,4 @@
+import { mountStoreDevtool } from "simple-zustand-devtools"
 import { create } from "zustand"
 
 export const useStore = create((set) => ({
@@ -8,4 +9,12 @@ export const useStore = create((set) => ({
   buildingSelectionData: [""],
   setBuildingSelectionData: (buildingSelectionData) =>
     set({ buildingSelectionData }),
+  censusTrackData: [],
+  setCensusTrackData: (censusTrackData) => set({ censusTrackData }),
+  selectedCensusData: {},
+  setSelectedCensusData: (selectedCensusData) => set({ selectedCensusData }),
+  lastSubmittedQuery: "",
+  setLastSubmittedQuery: (lastSubmittedQuery) => set({ lastSubmittedQuery }),
 }))
+
+mountStoreDevtool("Store", useStore)

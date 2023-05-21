@@ -1,57 +1,56 @@
-import React, { useEffect } from "react"
+import React, { useState } from "react"
 import { useStore } from "../state"
+import "./chatboxStyles.css"
 
-function ChatBox(props) {
-  const {
-    textQuery,
-    setTextQuery,
-    buildingSelectionData,
-    setBuildingSelectionData,
-  } = useStore()
+function ChatBox() {
+  const [loading, setLoading] = useState(false)
+  const { textQuery, setTextQuery, setCensusTrackData, setLastSubmittedQuery } =
+    useStore()
 
-  const submitText = async () => {
+  const submitText = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+
     const response = await fetch("http://localhost:5000/sql", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        prompt:
-          "Give me all census tracts, with elderly population over 10 percent",
+        prompt: textQuery,
       }),
     })
 
     const jsonResponse = await response.json()
-    // setBuildingSelectionData(jsonResponse)
-    console.log(jsonResponse)
+    setCensusTrackData(jsonResponse)
+    console.log(`${textQuery}: `, jsonResponse)
+    setLastSubmittedQuery(textQuery)
+    setTextQuery("")
+    setLoading(false)
   }
-
-  useEffect(() => {}, [buildingSelectionData])
 
   return (
     <div className=" mt-4 h-[8.5%] flex border-black">
-      <input
-        className="text-black p-5 bg-[#d0dec6] rounded-lg text-3xl flex-grow"
-        placeholder="Query the map..."
-        onChange={(e) => setTextQuery(e.target.value)}
-        value={textQuery}
-      />
-      <button
-        onClick={submitText}
-        className="bg-[#d0dec6] text-black rounded-xl w-[100px] h-full inline-flex justify-center items-center ml-10"
-      >
-        SUBMIT
-      </button>
+      <form className="w-full flex" onSubmit={submitText}>
+        <input
+          className={`text-black p-5 bg-dark-green rounded-lg text-3xl flex-grow ${
+            loading ? "loading-text" : ""
+          }`}
+          placeholder="Query the map..."
+          onChange={(e) => setTextQuery(e.target.value)}
+          value={textQuery}
+          disabled={loading}
+        />
+        <button
+          onClick={submitText}
+          className="bg-dark-green text-black rounded-xl w-[100px] h-full inline-flex justify-center items-center ml-10"
+          disabled={loading}
+        >
+          SUBMIT
+        </button>
+      </form>
     </div>
   )
 }
 
 export default ChatBox
-
-// #cedcc5
-
-// #8aa284
-
-// #f4faef
-
-// #d0dec6
