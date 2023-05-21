@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { useStore } from "../state"
 import SidebarCard from "./SidebarCard"
-import InfoModal from "./InfoModal"
+import "./custom-scrollbar.css"
 
 function Sidebar(props) {
   const { setCardData, cardData } = useStore()
@@ -26,17 +26,35 @@ function Sidebar(props) {
         riskLevel: "Low",
         riskColor: "green",
       },
+      {
+        address: "12345 New Lane, Los Angeles, CA 902222",
+        heatIndex: 0.5,
+        riskLevel: "Low",
+        riskColor: "green",
+      },
+      {
+        address: "12345 New Lane, Los Angeles, CA 902222",
+        heatIndex: 0.5,
+        riskLevel: "Low",
+        riskColor: "green",
+      },
+      {
+        address: "12345 New Lane, Los Angeles, CA 902222",
+        heatIndex: 0.5,
+        riskLevel: "Low",
+        riskColor: "green",
+      },
     ])
   }, [])
 
   return (
-    <div className="relative p-4  bg-slate-500">
+    <div
+      style={{ maxHeight: "calc(100vh - 50px", overflowY: "scroll" }}
+      className="relative custom-scrollbar p-4 rounded-lg  bg-yellow-500"
+    >
       {cardData.map((card, index) => (
         <SidebarCard key={index} data={card} />
       ))}
-      <div className="absolute bottom-5 right-5">
-        <InfoModal />
-      </div>
     </div>
   )
 }
