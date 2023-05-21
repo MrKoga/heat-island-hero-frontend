@@ -5,15 +5,15 @@ import MapDisplay from "./MapDisplay"
 
 function App() {
   return (
-    <div className="fixed w-full h-full bg-red-500">
-      <div className="h-[100px] grid items-center justify-center ">
+    <div className="fixed w-full h-full grid grid-cols-3 grid-rows-[auto,1fr] bg-red-500">
+      <div className="col-span-3  grid items-center justify-center">
         <span className="text-7xl">Heat Island Hero</span>
       </div>
-      <div>
+      <div className="col-span-2 border px-5  border-green-500">
         <MapDisplay />
         <ChatBox />
       </div>
-      <Sidebar />
+      <Sidebar className="col-span-1" />
     </div>
   )
 }

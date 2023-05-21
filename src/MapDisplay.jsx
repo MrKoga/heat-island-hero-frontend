@@ -40,21 +40,8 @@ function MapDisplay() {
   }, [])
 
   return (
-    <div
-      style={{
-        width: "calc(100vw - 500px)",
-      }}
-      className="h-[80vh] z-0 px-5  border-blue-500"
-    >
-      <div
-        style={
-          {
-            // width: "calc(100vw - 500px)",
-          }
-        }
-        className="h-[100%] w-[100%]"
-        id="mapbox"
-      ></div>
+    <div className="w-full h-[90%] border border-green-500">
+      <div className="h-[100%] w-[100%] border border-black" id="mapbox"></div>
     </div>
   )
 }

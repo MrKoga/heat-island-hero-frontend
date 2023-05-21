@@ -19,10 +19,12 @@ function ChatBox(props) {
 
   return (
     <div
-      style={{
-        width: "calc(100% - 500px - 2.5rem)",
-      }}
-      className="absolute bottom-4 h-[8vh] flex border-black z-10 left-5"
+      style={
+        {
+          // width: "calc(100% - 500px - 2.5rem)",
+        }
+      }
+      className=" mt-4 h-[6vh]  flex border-black z-10 left-5"
     >
       <input
         className="text-black p-5 bg-white rounded-lg text-3xl flex-grow"

@@ -27,11 +27,7 @@ function InfoModal(props) {
                 marginTop: 25,
                 justifyContent: "flex-end",
               }}
-            >
-              {/* <Dialog.Close asChild>
-                <button className="Button green">Save changes</button>
-              </Dialog.Close> */}
-            </div>
+            ></div>
             <Dialog.Close asChild>
               <button className="IconButton" aria-label="Close">
                 <Cross2Icon />

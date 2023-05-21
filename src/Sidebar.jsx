@@ -30,7 +30,7 @@ function Sidebar(props) {
   }, [])
 
   return (
-    <div className="w-[500px] h-full  bg-slate-500">
+    <div className=" relative h-full  bg-slate-500">
       {cardData.map((card, index) => (
         <SidebarCard key={index} data={card} />
       ))}
